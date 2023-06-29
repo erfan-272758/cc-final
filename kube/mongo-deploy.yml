@@ -31,6 +31,7 @@ spec:
           ports:
             - containerPort: 27018
               name: mongo
+          args: ["--bind_ip_all" , "--port" , "27018"]
           volumeMounts:
             - name: mongo-volume
               mountPath: /var/lib/mongo/data
