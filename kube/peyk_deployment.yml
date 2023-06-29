@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cc-payk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cc-payk
+  template:
+    metadata:
+      labels:
+        app: cc-payk
+    spec:
+      containers:
+        - name: peyk
+          image: erfan272758/cc-peyk:0.0.1
+          envFrom:
+            - configMapRef:
+                name: my-configmap
+          env:
+            - name: MONGO_USER
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: mongo_username
+            - name: MONGO_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: mongo_password
+          ports:
+            - containerPort: 2758
