@@ -13,8 +13,8 @@ spec:
         app: cc-payk
     spec:
       containers:
-        - name: peyk
-          image: erfan272758/cc-peyk:0.0.1
+        - name: payk
+          image: erfan272758/cc-payk:0.0.1
           envFrom:
             - configMapRef:
                 name: my-configmap
