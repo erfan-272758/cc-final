@@ -2,3 +2,6 @@
 kube/secret.yml
 ~$*
 .git
+*.zip
+*.rar
+*.docx
